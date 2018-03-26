@@ -16,11 +16,10 @@ public class ProdutosController {
 	private ProdutoDAO produtoDao;
 	
 	@RequestMapping("/produtos/form")
-	public String form() {
-		ModelAndView modelAndView = new ModelAndView();
-		
-		TipoPreco.values();
-		return "produtos/form";
+	public ModelAndView form() {
+		ModelAndView modelAndView = new ModelAndView("produtos/form");
+		modelAndView.addObject("tipos", TipoPreco.values());
+		return modelAndView;
 	}
 	
 	@RequestMapping("/produtos")
